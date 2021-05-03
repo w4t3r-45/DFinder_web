@@ -210,6 +210,16 @@ styled-table tbody tr.active-row {
   background-color: #e74749;
 }
 
+.cancel-btn{
+  background-color: #50ba79;
+  margin-left: 10px;
+}
+
+#del_div{
+  display: flex;
+  justify-content: space-around;
+}
+
 .update-btn{
   background-color: #50ba79;
 }
@@ -315,7 +325,7 @@ styled-table tbody tr.active-row {
   padding: 5px;
 }
 
-#pop-add-btn{
+.pop-add-btn{
   background-color: #48a9ee;
   width: 200px;
   margin: auto;
