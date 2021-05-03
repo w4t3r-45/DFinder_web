@@ -170,9 +170,9 @@ button i{
   margin: auto;
   margin-bottom: 10px;
   margin-top: 10px;
-  font-size: 0.9em;
+  font-size: 0.85rem;
   font-family: sans-serif;
-  min-width:100%;
+  width:900px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -184,7 +184,7 @@ button i{
 
 #main_table th,
 #main_table td {
-    padding: 12px 15px;
+    padding: 2px 15px;
 }
 
 #main_table tbody tr {
@@ -215,6 +215,19 @@ styled-table tbody tr.active-row {
   margin-left: 10px;
 }
 
+
+.del-icon{
+  color: #e74749;
+  cursor: pointer;
+  font-size: 1.1rem !important;
+}
+
+.update-icon{
+  color: #50ba79;
+  cursor: pointer;
+  font-size: 1.1rem !important;
+}
+
 #del_div{
   display: flex;
   justify-content: space-around;
@@ -229,17 +242,14 @@ styled-table tbody tr.active-row {
 /* table pagination styling */
 
 #t-container{
-  width: 900px;
+  /* background-color: red; */
+  width:900px;
   margin: auto;
   margin-top: 40px;
-  /* background-color: red;  */
 }
 
 #search_and_tr_nb{
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* margin: auto; */
   /* background-color: yellow; */
 }
 
