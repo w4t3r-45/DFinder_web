@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <title>Login</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Login</h1>
+        <%if(error){%>
+        <p style="color: #db4444; padding: 10px; border: 1px solid red; border-radius:5px; background-color: rgba(248, 185, 186,0.8); font-weight: 300; font-size: 14px; margin-bottom: 10px;"><%=error%></p>
+        <%}%>
+        <p id="__error">Administration Area</p>
+        <form action="/" method="POST">
+            <label for="">Email</label>
+            <input type="text" name="email" required>
+            <label for="">Password</label>
+            <input type="password" name="password" required>
+            <div class="check">
+                <input type="checkbox" name="remember_me" id="">
+                <p>Remember me</p>
+            </div>
+            <input type="submit" value="Log In">            
+        </form>
+     
+    </div>
+</body>
+</html>

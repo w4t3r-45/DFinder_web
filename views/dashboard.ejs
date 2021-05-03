@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/dash.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav>
+    <p><span>Welcome : </span>Ait chabanee said</p>
+    <button class="button">Logout <i class="fa fa-sign-out"></i></button>
+  </nav>
+  <!-- controls -->
+  <div id="Controls">
+    <form action="/showAdmins" method="POST" class="ctrl_forms">
+      <button  class="control-item" id="admin-ctrl">
+          <i class="fa fa-user-secret"></i>
+          <div>
+            <p>Admins</p>
+            <p class="ctrl_nbr"><%=admin_count%></p>
+          </div>
+      </button>
+    </form>
+   
+    <form action="/showUsers" method="POST" class="ctrl_forms">
+    <button class="control-item" id="user-ctrl">
+      <i class="fa fa-users"></i>
+      <div>
+        <p>Users</p>
+        <p class="ctrl_nbr">3650</p>
+      </div>
+    </button>
+  </form>
+
+  <form action="/showDrivers" method="POST" class="ctrl_forms">
+    <button class="control-item" id="driver-ctrl">
+      <i class="fa fa-address-card-o"></i>
+      <div>
+        <p>Drivers</p>
+        <p class="ctrl_nbr">54</p>
+      </div>
+    </div>
+  </button>
+</form>
+
+  <!-- add new user/admin button -->
+  <!-- add new user/admin button -->
+  <div id="btns-div">
+    <button class="button main-add-btn" id="admin-add-btn">Add Admin</button>
+    <button class="button main-add-btn" id="user-add-btn">Add User</button>
+    <button class="button main-add-btn" id="driver-add-btn">Add Driver</button>
+  </div>
+
+  <hr>
+
+
+  <!-- data table
+      i will render it conditionally because i have 3 cases (admins,drivers,users) each
+      one has it's own table structure
+     -->
+  <%if(data!=''){%>
+  <div id="t-container">
+    <div id="search_and_tr_nb">
+      <!-- select how many row we want to see -->
+      <select id="row-select">
+        <option value="0" disabled selected class="selected-op">--Select Rows--</option>
+        <option value="30" >30</option>
+        <option value="60">60</option>
+        <option value="90">90</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+      </select>
+
+      <!-- search bar -->
+      <!-- <input type="text" placeholder="Tap to Search" id="search-bar"></input> -->
+    </div>
+    <table id="main_table">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Password</td>
+          <td>delete</td>
+          <td>Edit</td>
+        </tr>
+      </thead>
+      <tbody>
+        <%data.forEach((e,index)=>{%>
+        <tr id="row<%=index%>">
+          <td><%= e.admin_id%></td>
+          <td><%= e.name%></td>
+          <td><%= e.email%></td>
+          <td><%= e.password%></td>
+          <td>
+            <form action="/delAdmin/<%=e.admin_id%>?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="button del-btn" id="del_<%=e.admin_id%>">delete</button>
+            </form>
+          </td>
+          <td>
+            <!-- <form action="/updateAdmin/<%e.admin_id%>"> -->
+              <!-- <form action=""> -->
+                <button class="button update-btn up-admin" id="upd_<%= e.admin_id%>">update</button>
+            <!-- </form> -->
+          </td>
+        </tr>
+        <%})}%>
+      </tbody>
+    </table>
+    <!-- pagination tab -->
+    <div id="pagination">
+      <!-- <button class="button pagn-btn">F</button> -->
+      <div id="inner-pgn-btn"></div>
+      <!-- <button class="button pagn-btn">L</button> -->
+    </div>
+  </div>
+
+  <!-- popup part will be rendered conditionally (we will have 3)-->
+  <div id="popup" style="display: none;">
+
+    <!--Add new Admin  -->
+    <div class="pop_content" id="add-admin-pop">
+      <div class="closing"> <img src="img/close_icon.png" alt=""> </div>
+      <p>Add New Admin</p>
+      <form action="/createAdmin" method="POST">
+        <input type="text" name="name" placeholder="Admin Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="password2" placeholder="Confirm Password" required>
+        <input type="submit" value="Add" class="button" id="pop-add-btn">
+      </form>
+    </div>
+
+     <!--Update Admin  -->
+     <div class="pop_content" id="update-admin-pop">
+        <div class="closing"> <img src="img/close_icon.png" alt=""> </div>
+        <p>Update Admin</p>
+        <form action="/updateAdmin?_method=PUT" method="POST">
+          <input type="hidden" name="_method" value="PUT">
+          <input type="text" name="id" class="disabled" id="adm-up-id" readonly>
+          <input type="text" name="name" id="adm-up-name" placeholder="Admin Name" required>
+          <input type="email" name="email" id="adm-up-email" placeholder="Email" required>
+          <input type="text" name="password" id="adm-up-password" placeholder="Password" required>
+          <input type="submit" value="Update" class="button" id="pop-add-btn">
+        </form>
+      </div>
+
+      <!--Delete Admin  -->
+     <div class="pop_content" id="del-admin">
+      <div class="closing"> <img src="img/close_icon.png" alt=""> </div>
+      <p>You will delete</p>
+      <form action="/delAdmin/<%=e.admin_id%>?_method=DELETE" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="button del-btn" id="del_<%=e.admin_id%>">yes</button>
+        <button class="button closing" id="del_<%=e.admin_id%>">No</button>
+    </form>
+    </div>
+
+    <!--Add new user  -->
+    <div class="pop_content" id="add-user-pop">
+      <div class="closing"> <img src="img/close_icon.png" alt=""> </div>
+      <p>Add New User</p>
+      <form action="">
+        <input type="text" name="name" placeholder="Admin Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="password2" placeholder="Confirm Password" required>
+        <input type="submit" value="Add" class="button" id="pop-add-btn">
+      </form>
+    </div>
+
+    <!--Add new Driver  -->
+    <div class="pop_content" id="add-driver-pop">
+      <div class="closing"> <img src="img/close_icon.png" alt=""> </div>
+      <p>Add New Driver</p>
+      <form action="">
+        <input type="text" name="name" placeholder="Admin Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="password2" placeholder="Confirm Password" required>
+        <input type="submit" value="Add" class="button" id="pop-add-btn">
+      </form>
+    </div>
+
+
+
+  </div>
+
+
+  <script src="libs/jquery.min.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/table_pagination.js"></script>
+  <script src="js/click_controls.js"></script>
+</body>
+
+</html>

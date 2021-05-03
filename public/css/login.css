@@ -1,0 +1,81 @@
+/* css reset */
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+body,html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: #cae7f9e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#container{
+    width: 310px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#container h1{
+    font-size: 2rem;
+    color: #555;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+#__error{
+    text-align: left;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+
+label,p{
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+form{
+    text-align: left;
+}
+
+form input{
+    margin: 5px 0;
+    width: 100%;
+    padding: 5px; 
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+input[type="checkbox"]{
+    width: 15px;
+    margin-right:3px;
+    background-color: red;
+}
+
+.check{
+    display: flex;
+    align-items: center;
+}
+
+input[type="submit"]{
+    height: 40px;
+    background-color: #347AB6;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+input[type="submit"]:focus{
+    outline: none;
+}
+

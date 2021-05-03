@@ -1,0 +1,348 @@
+/* css reset */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+html,body{
+  height: 100%;
+  width: 100%;
+  background-color: #f2f2f8;
+  position: relative;
+}
+/* nav style */
+
+nav{
+  height: 5%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding:10px 30px;
+}
+nav p{
+  color: #333;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+nav p span{
+  font-weight: 400;
+  color: rgb(168, 168, 168);
+}
+
+/* main add btn style */
+
+#btns-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top:1px solid rgba(0, 0, 0, 0.3);
+  padding-top: 10px;;
+}
+.main-add-btn{
+  display: block;
+  padding: 6px !important;
+  width: 250px !important;
+  margin: 0 10px;
+}
+
+/* colors
+  #67d05a
+  #f4636f
+  #4458f1
+*/
+
+#admin-add-btn{
+  background-color: #67d05a;
+}
+
+#user-add-btn{
+  background-color:   #f4636f;
+}
+
+#driver-add-btn{
+  background-color:#4458f1;
+}
+
+
+hr{
+  margin: 10px auto;
+  width: 70vw;
+  
+}
+/* styling table buttons */
+
+.button{
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #f2ab4f;
+  color: white;
+}
+
+.button:focus{
+  outline: none;
+}
+
+button i{
+  margin-left: 5px;
+}
+
+/* controls style */
+
+#Controls{
+  height: 20vh;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items:center; 
+}
+
+/* colors
+  #67d05a
+  #f4636f
+  #4458f1
+*/
+.control-item{
+  background-color: #785;
+  height: 60%;
+  width: 250px;
+  background-color: #67d05a;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items:center; 
+  border: none;
+}
+
+.control-item:focus{
+  outline: none;
+}
+
+.control-item i {
+  font-size: 3rem;
+  color: white
+}
+
+.control-item p{
+  color: white;
+  font-weight: 500;
+}
+
+.control-item div p+p{
+  font-size: 20px;
+}
+
+
+
+
+#admin-ctrl{
+  background-color: #67d05a;
+}
+
+#user-ctrl{
+  background-color: #f4636f;
+  
+}
+
+#driver-ctrl{
+  background-color: #4458f1;
+}
+
+.ctrl_forms{
+  height: 20vh;
+  margin-top: 30px;
+}
+
+/* table styling  */
+/* i need to add padination and search to my table (maybe in JS) */
+
+#main_table{
+  border-collapse: collapse;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width:100%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+#main_table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+#main_table th,
+#main_table td {
+    padding: 12px 15px;
+}
+
+#main_table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+#main_table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+#main_table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+/* styling table buttons */
+
+.del-btn{
+  background-color: #e74749;
+}
+
+.update-btn{
+  background-color: #50ba79;
+}
+
+/* //////////////////////////////////////////////////// */
+
+/* table pagination styling */
+
+#t-container{
+  width: 900px;
+  margin: auto;
+  margin-top: 40px;
+  /* background-color: red;  */
+}
+
+#search_and_tr_nb{
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: yellow; */
+}
+
+#row-select{
+  border: none;
+  border-radius: 3px;
+  background-color: #009879;
+  color: white;
+  padding: 4px 0;
+  padding-left: 2px;
+}
+#row-select:focus{
+  outline: none;
+}
+.selected-op{
+  background-color: #19a286;
+  color: #f3f3f3;
+}
+
+
+#search-bar{
+  border: none;
+  padding: 5px;
+  width: 250px;
+  background-color:white;
+  border-radius: 3px;
+}
+
+/* pagination */
+
+#pagination{
+  margin-bottom: 30px;
+}
+
+.pagn-btn{
+  width: 30px;
+  background-color: #009879;
+  margin: 2px 2px;
+}
+
+.active{
+  background-color: #3a5a54;
+}
+
+
+
+/* ///////////////////////////////////////////////// */
+
+/* popup design */
+
+#popup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0,0.6);
+}
+
+.pop_content{
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+}
+
+.pop_content p {
+  font-size: 1.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+
+}
+.pop_content form input{
+  display: block;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.pop_content form input,.pop_content form select {
+  padding: 5px;
+}
+
+#pop-add-btn{
+  background-color: #48a9ee;
+  width: 200px;
+  margin: auto;
+}
+
+#submit:focus{
+  outline: none;
+}
+
+.closing{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.closing img{
+  height: 100%;
+  width: 100%;
+}
+
+
+/*  */
+
+ .disabled{
+  background-color: #eee;
+  cursor: default;
+}
